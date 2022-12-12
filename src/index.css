@@ -1,0 +1,24 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    overflow-x: hidden;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #fff !important;
+}
+
+.section__padding{
+    padding: 10px 10px 0px 10px;
+    margin-bottom: -20px;
+}
+
+:root {
+    --color-tag: rgba(15, 239, 253, 1);
+    --font-family: 'Robot', sans-serif;
+    --color-gradient: linear-gradient(166deg, rgba(15, 239, 253, 1) 17%, rgba(255, 0, 245, 1) 64%, rgba(15, 239, 253, 0.22) 91%);
+    --color-background:#151515
+}

@@ -1,0 +1,53 @@
+.omov__carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+    position: relative;
+}
+
+.omov__carousel-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.omov__carousel-container_overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 200px;
+    padding-bottom: 70px;
+    background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.omov__carousel-container_overlay h1 {
+    width: 70%;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 70px;
+    line-height: 80px;
+    margin: 10px 0 0 0;
+}
+
+.omov__carousel-container_overlay p {
+    color: #fff;
+    width: 60%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.omov__carousel-container_overlay h1+p {
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.omov__carousel-container_tags{
+    display: flex;
+    gap: 5px;
+}

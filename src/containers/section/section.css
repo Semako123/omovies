@@ -1,0 +1,14 @@
+.omv__section-container{
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 10px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+
+.omv__section h4{
+        color: #fff;
+        font-size: 18px;
+        margin-left:25px;
+        font-weight: 500;
+}
