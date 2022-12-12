@@ -1,7 +1,6 @@
 import React from "react";
 import "./movie-card.css";
 import Tag from "../tag/Tag";
-import card from "../../assets/images/card.png";
 import { FaGreaterThan } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
@@ -9,7 +8,7 @@ const Mcard = ({ genre, title, img }) => {
   const star = [0, 1, 2, 3, 4];
   return (
     <div className="omv__mcard">
-      {"card" && <img src={img} alt="card" />}
+      {"card" && <img src={img} alt="" />}
       <div className="omv__mcard-overlay">
         <Tag>{genre}</Tag>
         <div>

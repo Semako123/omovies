@@ -1,8 +1,7 @@
 .omv__section-container{
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    gap: 10px;
-    overflow-x: scroll;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
     padding-bottom: 10px;
 }
 
@@ -10,5 +9,5 @@
         color: #fff;
         font-size: 18px;
         margin-left:25px;
-        font-weight: 500;
+        font-weight: 600;
 }

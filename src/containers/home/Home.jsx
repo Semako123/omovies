@@ -3,44 +3,46 @@ import "./home.css";
 import { Carousel } from "../../components";
 import { Section } from "../../containers";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { dataActions } from "../../store/dataSlicer";
 
 const Home = () => {
-  const [data, setData] = useState({
-    trendingM: [],
-    trendingT: [],
-    upcomingM: [],
-    releaseM: [],
-    releaseT: [],
-    ratedM: [],
-    recommendations: [],
-  });
+  const data = useSelector((state) => state.data);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     API.get("/movie/popular")
       .then((res) => {
-        setData({ ...data, trendingM: res.data.results });
+        dispatch(dataActions.updateTrendingM(res.data.results));
       })
-    // eslint-disable-next-line
+      .then(() => {
+        API.get("/tv/popular").then((res) => {
+          dispatch(dataActions.updateTrendingT(res.data.results));
+        });
+      })
+      .then(() => {
+        API.get("/movie/upcoming").then((res) => {
+          dispatch(dataActions.updateUpcomingM(res.data.results));
+        });
+      })
+      .then(() => {
+        API.get("/movie/now_playing").then((res) => {
+          dispatch(dataActions.updatePlayingM(res.data.results));
+        });
+      })
+      .then(() => {
+        API.get("/tv/airing_today").then((res) => {
+          dispatch(dataActions.updateAiringT(res.data.results));
+        });
+      })
+      .then(() => {
+        API.get("/movie/recommendation").then((res) => {
+          dispatch(dataActions.updateRecommendations(res.data.results));
+        });
+      }); // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    API.get("/tv/popular").then((res) => {
-      setData({ ...data, trendingT: res.data.results });
-    });
-    // eslint-disable-next-line
-  }, []);
-
-useEffect(() => {
-    API.get("/movie/upcoming").then((res) => {
-      setData({ ...data, upcomingM: res.data.results });
-    });
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   const config = {
     headers: {
@@ -61,7 +63,11 @@ useEffect(() => {
       <Carousel />
       <Section title="Trending Movies" data={data.trendingM} />
       <Section title="Trending TV Shows" data={data.trendingT} />
+      <Section title="Top Rated Movies" data={data.ratedM} />
       <Section title="Upcoming Movies" data={data.upcomingM} />
+      <Section title="Playing Now in Theatres" data={data.playingM} />
+      <Section title="Airing Today" data={data.airingT} />
+      <Section title="Movie Recommendations" data={data.recommendations} />
     </div>
   );
 };
