@@ -9,7 +9,6 @@ const dataSlicer = createSlice({
     playingM: [],
     airingT: [],
     ratedM: [],
-    recommendations: [],
   },
   reducers: {
     updateTrendingM: (state, action) => {
@@ -31,9 +30,6 @@ const dataSlicer = createSlice({
     },
     updateRatedM: (state, action) => {
       state.ratedM = action.payload;
-    },
-    updateRecommendations: (state, action) => {
-      state.recommendations = action.payload;
     },
   },
 });

@@ -3,6 +3,13 @@
     width: 230px;
     height: 350px;
     position: relative;
+    box-sizing: content-box;
+    border-width: 1px;
+    border-style: solid;
+    border-image: var(--color-gradient);
+    border-image-slice: 1;
+    box-shadow: 2px 2px 4px 4px rgba(181, 45, 215, 0.12);
+    cursor: pointer;
 }
 
 .omv__mcard img {
@@ -23,9 +30,10 @@
 
 .omv__mcard-overlay h4 {
     margin-left: 0 !important;
-    margin-top:5px;
-    font-weight: 500;
-    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
     line-height: 25px;
     color: #fff;
 }
@@ -40,8 +48,12 @@
 }
 
 
-.card-icon{
-    display:inline-block;
-    margin-left:2px;
+.card-icon {
+    display: inline-block;
+    margin-left: 2px;
     transform: translateY(2px);
+}
+
+.omv__mcard-tag {
+    flex-wrap: wrap;
 }

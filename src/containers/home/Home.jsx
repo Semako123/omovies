@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 import { Carousel } from "../../components";
-import { Section } from "../../containers";
+import { Section, Footer } from "../../containers";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +19,7 @@ const Home = () => {
       })
       .then(() => {
         API.get("/tv/popular").then((res) => {
+          console.log(res)
           dispatch(dataActions.updateTrendingT(res.data.results));
         });
       })
@@ -38,8 +39,8 @@ const Home = () => {
         });
       })
       .then(() => {
-        API.get("/movie/recommendation").then((res) => {
-          dispatch(dataActions.updateRecommendations(res.data.results));
+        API.get("/movie/top_rated").then((res) => {
+          dispatch(dataActions.updateRatedM(res.data.results));
         });
       }); // eslint-disable-next-line
   }, []);
@@ -67,7 +68,7 @@ const Home = () => {
       <Section title="Upcoming Movies" data={data.upcomingM} />
       <Section title="Playing Now in Theatres" data={data.playingM} />
       <Section title="Airing Today" data={data.airingT} />
-      <Section title="Movie Recommendations" data={data.recommendations} />
+      <Footer/>
     </div>
   );
 };

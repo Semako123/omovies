@@ -11,14 +11,14 @@ html {
     background-color: #fff !important;
 }
 
-.section__padding{
+.section__padding {
     padding: 10px 10px 0px 10px;
-    margin-bottom: -20px;
 }
 
 :root {
     --color-tag: rgba(15, 239, 253, 1);
     --font-family: 'Robot', sans-serif;
     --color-gradient: linear-gradient(166deg, rgba(15, 239, 253, 1) 17%, rgba(255, 0, 245, 1) 64%, rgba(15, 239, 253, 0.22) 91%);
-    --color-background:#151515
+    --color-background: #151515;
+    --color-footer:linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgba(7, 58, 187, 1) 100%);
 }

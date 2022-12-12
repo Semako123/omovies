@@ -13,10 +13,11 @@ const Section = ({ title, data }) => {
         {data &&
           data.map((x) => (
             <Mcard
-              genre="fantasy"
+              genre={x.genre_ids.slice(0,3)}
               title={x.original_title || x.name || x.title}
               key={x.original_title || x.name || x.title}
               img={`https://image.tmdb.org/t/p/original/${x.poster_path}`}
+              rating={x.vote_average}
             />
           ))}
       </div>

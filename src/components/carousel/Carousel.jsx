@@ -1,5 +1,6 @@
 import { Autoplay, Pagination, EffectFade } from "swiper";
 import { AiFillStar } from "react-icons/ai";
+import { BsStarHalf } from "react-icons/bs";
 import React from "react";
 import "./carousel.css";
 import "swiper/css/effect-fade";
@@ -14,7 +15,7 @@ import { useSelector } from "react-redux";
 
 const Carousel = () => {
   const [data, setData] = useState([]);
-  const list = [0, 1, 2, 3, 4];
+
   const config = {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -53,24 +54,30 @@ const Carousel = () => {
       >
         {data.map((data) => (
           <SwiperSlide
-            className="omov__carousel-container"
+            className="omv__carousel-container"
             key={data.title || data.name}
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
               alt="slide"
             />
-            <div className="omov__carousel-container_overlay">
-              <div className="omov__carousel-container_tags">
+            <div className="omv__carousel-container_overlay">
+              <div className="omv__carousel-container_tags">
                 {data.genre_ids.map((x, index) => (
                   <Tag key={index}>{genres[x]}</Tag>
                 ))}
               </div>
 
               <div>
-                {list.map((x) => (
+                {[...Array(Math.round(data.vote_average / 2))].map((x) => (
                   <AiFillStar color="#fff" key={x} />
                 ))}
+                {data.vote_average / 2 - Math.floor(data.vote_average / 2) >
+                0.4 ? (
+                  <BsStarHalf color="#fff" />
+                ) : (
+                  <></>
+                )}
               </div>
               <h1>{data.name || data.title}</h1>
               <p>{data.overview}</p>
