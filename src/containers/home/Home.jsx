@@ -19,7 +19,6 @@ const Home = () => {
       })
       .then(() => {
         API.get("/tv/popular").then((res) => {
-          console.log(res)
           dispatch(dataActions.updateTrendingT(res.data.results));
         });
       })
@@ -62,13 +61,17 @@ const Home = () => {
   return (
     <div>
       <Carousel />
-      <Section title="Trending Movies" data={data.trendingM} />
-      <Section title="Trending TV Shows" data={data.trendingT} />
-      <Section title="Top Rated Movies" data={data.ratedM} />
-      <Section title="Upcoming Movies" data={data.upcomingM} />
-      <Section title="Playing Now in Theatres" data={data.playingM} />
-      <Section title="Airing Today" data={data.airingT} />
-      <Footer/>
+      <Section title="Trending Movies" data={data.trendingM} type="movie" />
+      <Section title="Trending TV Shows" data={data.trendingT} type="tv" />
+      <Section title="Top Rated Movies" data={data.ratedM} type="movie" />
+      <Section title="Upcoming Movies" data={data.upcomingM} type="movie" />
+      <Section
+        title="Playing Now in Theatres"
+        data={data.playingM}
+        type="movie"
+      />
+      <Section title="Airing Today" data={data.airingT} type="tv" />
+      <Footer />
     </div>
   );
 };

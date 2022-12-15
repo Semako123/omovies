@@ -7,6 +7,10 @@ html {
     overflow-x: hidden;
 }
 
+*{
+    scroll-behavior: smooth;
+}
+
 .swiper-pagination-bullet-active {
     background-color: #fff !important;
 }
@@ -20,5 +24,5 @@ html {
     --font-family: 'Robot', sans-serif;
     --color-gradient: linear-gradient(166deg, rgba(15, 239, 253, 1) 17%, rgba(255, 0, 245, 1) 64%, rgba(15, 239, 253, 0.22) 91%);
     --color-background: #151515;
-    --color-footer:linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgba(7, 58, 187, 1) 100%);
+    --color-footer:linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgb(19, 45, 160) 100%);
 }

@@ -1,4 +1,4 @@
-import { Autoplay, Pagination, EffectFade } from "swiper";
+import { Keyboard, Autoplay, Pagination, EffectFade } from "swiper";
 import { AiFillStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 import React from "react";
@@ -50,7 +50,10 @@ const Carousel = () => {
           clickable: true,
         }}
         loop={true}
-        modules={[Autoplay, Pagination, EffectFade]}
+        modules={[Keyboard, Autoplay, Pagination, EffectFade]}
+        keyboard={{
+          enabled: true,
+        }}
       >
         {data.map((data) => (
           <SwiperSlide
