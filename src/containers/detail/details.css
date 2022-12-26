@@ -1,5 +1,5 @@
 .omv__details {
-    background: rgba(49, 113, 162, 0.11);
+    background: rgba(7, 18, 27, 0.533);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.5px);
@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    color: #fff;
 }
 
 .omv__details-header {
@@ -29,10 +30,11 @@
 .omv__details-header_overlay {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.481);
-    height: 100%;
+    height: 92%;
     width: 100%;
     display: flex;
-    padding: 50px;
+    padding-top: 50px;
+    padding-left: 50px;
 }
 
 .omv__details-header_poster {
@@ -52,7 +54,7 @@
     width: 100%;
 }
 
-.omv__details-header_content{
+.omv__details-header_content {
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -60,39 +62,84 @@
     flex: 2.6;
 }
 
-.omv__details-body{
+.omv__details-body {
     margin-top: 30px;
     width: 100%;
+    padding: 30px;
 }
 
-.omv__details-progressBar{
+.omv__details-progressBar {
     height: 65px;
     width: 65px;
 }
 
-.omv__details-header_content-title{
+.omv__details-header_content-title {
     font-size: 54px;
     font-weight: 600;
     margin: 10px 0 0 0;
 }
 
-.omv__details-header_content-tags{
+.omv__details-header_content-tags {
     display: flex;
     gap: 10px;
 }
 
-.omv__details-header_content-ratings h4{
+.omv__details-header_content-ratings h4 {
     margin-top: 0px;
     font-weight: 600;
 }
 
-.omv__details-header_content-overview h3{
+.omv__details-header_content-overview h3 {
     margin-bottom: 10px;
 }
 
 .omv__details-header_content-overview p {
     font-size: 15px;
     width: 70%;
+}
+
+.omv__details-body_companyLogo {
+    display: flex;
+    height: 30%;
+    width: 30%;
+
+}
+
+.omv__details-body_companyLogo img {
+    height: 100%;
+    width: 100%;
+}
+
+.omv__details-body_companyLogos-container {
+    display: flex;
+    overflow-x: scroll;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 30px;
+    margin: 0
+}
+
+.omv__details-body_companyLogo-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.omv__details-body_trailerContainer {
+    height: 500px;
+    width: 90vw;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:30px;
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}
+
+.omv__details-body_trailer {
+    height: 500px;
+    width: 90vw;
 }
 
 .scale-up-center {

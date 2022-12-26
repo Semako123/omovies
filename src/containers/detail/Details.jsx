@@ -8,14 +8,22 @@ import { Tag } from "../../components";
 
 const Details = ({ id, type }) => {
   const [data, setData] = useState({});
+  const [trailers, setTrailers] = useState({});
 
   useEffect(() => {
     API.get(`/${type}/${id}`).then((res) => {
       setData(res.data);
-      console.log(res.data);
     });
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    API.get(`/${type}/${id}/videos`).then((res) => {
+      console.log(res);
+      setTrailers(res.data);
+    });
+    // eslint-disable-next-line
+  }, [data]);
 
   const config = {
     headers: {
@@ -98,7 +106,55 @@ const Details = ({ id, type }) => {
           </div>
         </div>
       </div>
-      <div className="omv__details-body"></div>
+      <div className="omv__details-body">
+        <h3>Production Companies</h3>
+        <div className="omv__details-body_companyLogos-container">
+          {data.production_companies &&
+            data.production_companies.map((x) => (
+              <div className="omv__details-body_companyLogo-container">
+                <img
+                  src={`https://image.tmdb.org/t/p/original/${x.logo_path}`}
+                  alt=""
+                  className="omv__details-body_companyLogo"
+                />
+                <h5>{x.name}</h5>
+              </div>
+            ))}
+        </div>
+        <div>
+          <h3>Trailer</h3>
+          <div className="omv__details-body_trailerContainer">
+            <iframe
+              id="player"
+              type="text/html"
+              className="omv__details-body_trailer"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+            <iframe
+              id="player"
+              type="text/html"
+              className="omv__details-body_trailer"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+            <iframe
+              id="player"
+              type="text/html"
+              className="omv__details-body_trailer"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+            <iframe
+              id="player"
+              type="text/html"
+              className="omv__details-body_trailer"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
