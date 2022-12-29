@@ -1,0 +1,31 @@
+.omv__search {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+    color: white !important;
+}
+
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root{
+    color: white !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root{
+    color: white;
+}
+
+.css-16z3zeq-MuiInputBase-root-MuiInput-root:before{
+    border-color: white !important;
+}
+
+.css-ptiqhd-MuiSvgIcon-root{
+    color: white;
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root{
+    color: rgb(224, 224, 224) !important;
+}

@@ -7,12 +7,30 @@ html {
     overflow-x: hidden;
 }
 
-*{
-    scroll-behavior: smooth;
+*::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
 }
 
-.swiper-pagination-bullet-active {
-    background-color: #fff !important;
+
+*::-webkit-scrollbar-track {
+    background: rgb(66, 66, 66);
+    /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    /* color of the scroll thumb */
+    border-radius: 30px;
+    /* roundness of the scroll thumb */
+    border: 4px solid rgb(66, 66, 66);
+    /* creates padding around scroll thumb */
+}
+
+
+
+* {
+    scroll-behavior: smooth;
 }
 
 .section__padding {
@@ -24,5 +42,5 @@ html {
     --font-family: 'Robot', sans-serif;
     --color-gradient: linear-gradient(166deg, rgba(15, 239, 253, 1) 17%, rgba(255, 0, 245, 1) 64%, rgba(15, 239, 253, 0.22) 91%);
     --color-background: #151515;
-    --color-footer:linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgb(19, 45, 160) 100%);
+    --color-footer: linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgb(19, 45, 160) 100%);
 }

@@ -7,11 +7,12 @@ import "swiper/css/effect-fade";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import Button from "../Button/Button";
-import Tag from "../tag/Tag";
+import Popup from "reactjs-popup";
+import { Tag, Button } from "../../components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Details } from "../../containers";
 
 const Carousel = () => {
   const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ const Carousel = () => {
   });
   useEffect(() => {
     API.get("/trending/all/week").then((res) => {
-      setData(res.data.results.slice(0, 10));
+      setData(res.data.results);
     });
     // eslint-disable-next-line
   }, []);
@@ -71,20 +72,29 @@ const Carousel = () => {
                 ))}
               </div>
 
-              <div>
+              <div className="omv__carousel-container_overlay-ratings">
                 {[...Array(Math.round(data.vote_average / 2))].map((x) => (
-                  <AiFillStar color="#fff" key={x} />
+                  <AiFillStar className="star" color="#fff" key={`${Math.random()}`} />
                 ))}
                 {data.vote_average / 2 - Math.floor(data.vote_average / 2) >
                 0.4 ? (
-                  <BsStarHalf color="#fff" />
+                  <BsStarHalf className="star" color="#fff" />
                 ) : (
                   <></>
                 )}
               </div>
               <h1>{data.name || data.title}</h1>
               <p>{data.overview}</p>
-              <Button type="gradient">Check now</Button>
+              <Popup
+                trigger={
+                  <button className="omv__modal-button">
+                    <Button type="gradient">Check now</Button>
+                  </button>
+                }
+                modal
+              >
+                <Details id={data.id} type={data.media_type} />
+              </Popup>
             </div>
           </SwiperSlide>
         ))}

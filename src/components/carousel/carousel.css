@@ -17,7 +17,6 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 200px;
-    padding-bottom: 70px;
     background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%);
     position: absolute;
     width: 100%;
@@ -47,7 +46,97 @@
     margin-bottom: 50px;
 }
 
-.omv__carousel-container_tags{
+.omv__carousel-container_tags {
     display: flex;
     gap: 5px;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #fff !important;
+}
+
+@media screen and (max-width:1050px) {
+    .omv__carousel-container_overlay h1 {
+        font-size: 50px;
+        line-height: normal;
+    }
+
+    .omv__carousel-container_overlay h1+p {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .omv__carousel-container_overlay h1 {
+        font-size: 40px;
+        line-height: 37px;
+        letter-spacing: 0rem;
+    }
+
+    .omv__carousel-container_overlay h1+p {
+        font-size: 12px;
+        line-height: 17px;
+        margin-bottom: 30px;
+    }
+
+    .swiper-pagination-bullet {
+        height: 6px !important;
+        width: 6px !important;
+    }
+
+    .omv__carousel-container_overlay {
+        padding-bottom: 0px;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+    .omv__carousel-container_overlay h1 {
+        font-size: 30px;
+        line-height: normal;
+        margin-top: 0;
+        width: 80%;
+    }
+
+    .omv__carousel-container_overlay h1+p {
+        font-size: 10px;
+        margin-bottom: 5px;
+        width: 80%;
+        margin-top: 5px;
+    }
+
+    .star{
+        font-size: 12px ;
+    }
+
+    .omv__carousel-container_overlay-ratings{
+        margin: 0;
+    }
+    .omv__carousel-container_overlay {
+        padding-left: 100px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .omv__carousel-container_overlay h1+p{
+        display: none;
+    }
+
+    .omv__carousel-container_overlay h1{
+        width: 80%;
+        font-size:25px;
+        line-height:30px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+    
+    .star{
+        font-size: 11px !important;
+    }
+
+    .omv__carousel-container_overlay-ratings{
+        margin-bottom: 0;
+    }
 }

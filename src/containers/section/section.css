@@ -1,25 +1,49 @@
-.omv__section-container{
+.omv__section-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 30px;
     padding-bottom: 10px;
 }
 
-.omv__section h4{
-        color: #fff;
-        font-size: 18px;
-        margin-left:25px;
-        font-weight: 600;
+.omv__section h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 25px;
+    font-weight: 600;
 }
 
-.omv__section{
+.omv__section {
     margin-bottom: -20px;
 }
 
-.omv__modal-button{
+.omv__modal-button {
     border: none;
     outline: none;
     background-color: transparent;
     padding: 0;
     margin: 0;
+}
+
+@media screen and (max-width:1300px) {
+    .omv__section-container {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .omv__section-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .omv__section-container::-webkit-scrollbar {
+        display: none;
+    }
 }

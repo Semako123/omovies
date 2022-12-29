@@ -1,5 +1,5 @@
 .omv__details {
-    background: rgba(7, 18, 27, 0.533);
+    background: rgba(7, 18, 27, 0.738);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.5px);
@@ -22,6 +22,13 @@
     flex-direction: column;
 }
 
+.omv__details-header_content h2 {
+    width: 80%;
+    font-size: 40px;
+    margin: 7px 0px;
+    margin-top: 30px;
+}
+
 .omv__details-header img {
     height: 100%;
     width: 100%;
@@ -30,11 +37,11 @@
 .omv__details-header_overlay {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.481);
-    height: 92%;
+    height: 100%;
     width: 100%;
     display: flex;
-    padding-top: 50px;
     padding-left: 50px;
+    align-items: center;
 }
 
 .omv__details-header_poster {
@@ -63,9 +70,8 @@
 }
 
 .omv__details-body {
-    margin-top: 30px;
     width: 100%;
-    padding: 30px;
+    padding: 0 30px;
 }
 
 .omv__details-progressBar {
@@ -112,7 +118,7 @@
 
 .omv__details-body_companyLogos-container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     align-items: flex-end;
     justify-content: flex-start;
     gap: 30px;
@@ -129,17 +135,157 @@
 .omv__details-body_trailerContainer {
     height: 500px;
     width: 90vw;
-    margin-bottom: 100px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap:30px;
-    overflow-y: scroll;
+    display: flex;
+    grid-template-columns: repeat( 1fr);
+    gap: 20px;
+    overflow-y: hidden;
     padding-bottom: 30px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .omv__details-body_trailer {
     height: 500px;
     width: 90vw;
+}
+
+.omv__details-casts_cards {
+    display: flex;
+    overflow-x: scroll;
+    padding-right: 50px;
+    gap: 20px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.omv__details-casts h2 {
+    margin: 0;
+}
+
+@media screen and (max-width:1300px) {
+    .omv__details-casts_cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .omv__details-body_trailerContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:1000px) {
+    .omv__details-header_poster {
+        width: 160px;
+        height: 350px;
+    }
+
+    .omv__details-header_content h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 0px;
+    }
+
+    .omv__details-header_content-overview h3 {
+        margin: 0;
+    }
+
+    .omv__details-header_content-overview p {
+        font-size: 10px;
+    }
+
+    .omv__details-header_content-ratings h4 {
+        margin: 0;
+    }
+
+    .omv__details-progressBar {
+        transform: scale(0.8);
+        margin: 0;
+    }
+
+}
+
+@media screen and (max-width:900px) {
+
+    .omv__details-body_trailerContainer {
+        height: 240px;
+    }
+
+    .omv__details-body_trailer {
+        height: 240px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .omv__details-header_poster {
+        height: 300px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .omv__details-header_poster {
+        height: 250px;
+        width: 120px;
+    }
+
+    .omv__details-header_content-overview h3 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    .omv__details-header_content-overview p {
+        margin-top: 8px;
+        width: 80%;
+        font-size: 9px;
+    }
+
+    .omv__details-header_content-ratings h4 {
+        display: none;
+
+    }
+
+    .omv__details-header_content h2,
+    .omv__details-header_content-tags {
+        margin-bottom: -5px;
+    }
+
+    .omv__details h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .omv__details-header_poster{
+        height: 200px;
+    }
+    
+}
+
+@media screen and (max-width:500px) {
+    .omv__details-header_poster {
+        display: none;
+    }
+
+    .omv__details-progressBar {
+        display: none;
+    }
+
+    .omv__details-header_overlay{
+        padding-left: 30px;
+    }
+    .omv__details-header_content-tags {
+        width: 90%;
+    }
+
 }
 
 .scale-up-center {

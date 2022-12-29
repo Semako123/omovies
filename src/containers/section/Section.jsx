@@ -15,6 +15,7 @@ const Section = ({ title, data, type }) => {
         {data &&
           data.slice(0, 18).map((x) => (
             <Popup
+              key={x.poster_path}
               trigger={
                 <button className="omv__modal-button">
                   <Mcard

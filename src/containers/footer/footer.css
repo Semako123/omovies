@@ -1,7 +1,6 @@
 .omv__footer {
     width: 100%;
     height: 100%;
-    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,15 +9,35 @@
 
 .omv__footer h2 {
     width: max-content;
-    background: var(--color-footer);
+    background: var(--color-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 55px;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
     margin: 20px 10px;
+    font-weight: 300;
 }
 
 .omv__footer img {
     width: 8%;
     height: 8%;
+}
+
+@media screen and (max-width:1000px) {
+    .omv__footer h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .omv__footer h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .omv__footer h2 {
+        font-size: 1.3rem;
+    }
 }

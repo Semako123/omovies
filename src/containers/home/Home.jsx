@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.css";
-import { Carousel } from "../../components";
+import { Carousel, Search } from "../../components";
 import { Section, Footer } from "../../containers";
 import axios from "axios";
 import { useEffect } from "react";
@@ -60,6 +60,7 @@ const Home = () => {
 
   return (
     <div>
+      <Search/>
       <Carousel />
       <Section title="Trending Movies" data={data.trendingM} type="movie" />
       <Section title="Trending TV Shows" data={data.trendingT} type="tv" />

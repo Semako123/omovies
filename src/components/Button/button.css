@@ -9,11 +9,12 @@
     font-weight: 500;
     text-shadow: 0px 40px 40px rgba(0, 0, 0, 0.12);
     cursor: pointer;
-    transition: background-color ease 200ms;
+    transition: background-color transform ease 200ms;
 }
 
-.omov__button:hover{
+.omov__button:hover {
     background-color: #2a2a2a42;
+    transform: scale(1.05);
 }
 
 .gradient {
@@ -23,4 +24,20 @@
     border-image: var(--color-gradient);
     border-image-slice: 1;
     box-shadow: 0px 16px 16px 4px rgba(0, 0, 0, 0.12);
+}
+
+@media screen and (max-width:750px) {
+    .omov__button {
+        font-size: 10px;
+        width: 110px;
+        padding:9px 0;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .omov__button {
+        font-size: 10px;
+        width: 90px;
+        padding: 6px 0;
+    }
 }

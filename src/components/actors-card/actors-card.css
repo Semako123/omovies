@@ -1,0 +1,53 @@
+.omv__actors-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.omv__actors-card_image {
+    height: 190px;
+    width: 140px;
+    display: flex;
+}
+
+.omv__actors-card_image img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.omv__actors-card_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.omv__actors-card_name p {
+    text-align: center;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.omv__actors-card_name p:first-child {
+    margin-top: 10px;
+}
+
+.omv__actors-card_name p:last-child {
+    margin-bottom: 10px;
+    font-weight: 600;
+    background: var(--color-footer);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@media screen and (max-width:1000px) {
+    .omv__actors-card_image {
+        height: 160px;
+        width: 120px;
+        display: flex;
+    }
+    .omv__actors-card_name p{
+        font-size: 11px;
+    }
+}

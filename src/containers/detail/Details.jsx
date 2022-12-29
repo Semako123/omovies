@@ -4,11 +4,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { Tag } from "../../components";
+import { Tag, Acard } from "../../components";
 
 const Details = ({ id, type }) => {
   const [data, setData] = useState({});
-  const [trailers, setTrailers] = useState({});
+  const [trailers, setTrailers] = useState([]);
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     API.get(`/${type}/${id}`).then((res) => {
@@ -19,11 +20,18 @@ const Details = ({ id, type }) => {
 
   useEffect(() => {
     API.get(`/${type}/${id}/videos`).then((res) => {
-      console.log(res);
-      setTrailers(res.data);
+      setTrailers(res.data.results);
     });
     // eslint-disable-next-line
   }, [data]);
+
+  useEffect(() => {
+    API.get(`/${type}/${id}/credits`).then((res) => {
+      console.log(trailers);
+      setCast(res.data.cast);
+    });
+    // eslint-disable-next-line
+  }, [trailers]);
 
   const config = {
     headers: {
@@ -54,9 +62,7 @@ const Details = ({ id, type }) => {
             />
           </div>
           <div className="omv__details-header_content">
-            <h2 className="omv__details-header_content-title">
-              {data.title || data.name || data.original_title}{" "}
-            </h2>
+            <h2>{data.title || data.name || data.original_title} </h2>
             <div className="omv__details-header_content-tags">
               {data.genres && data.genres.map((x) => <Tag>{x.name}</Tag>)}
             </div>
@@ -107,7 +113,7 @@ const Details = ({ id, type }) => {
         </div>
       </div>
       <div className="omv__details-body">
-        <h3>Production Companies</h3>
+        <h2>Production Companies</h2>
         <div className="omv__details-body_companyLogos-container">
           {data.production_companies &&
             data.production_companies.map((x) => (
@@ -121,37 +127,37 @@ const Details = ({ id, type }) => {
               </div>
             ))}
         </div>
-        <div>
-          <h3>Trailer</h3>
-          <div className="omv__details-body_trailerContainer">
-            <iframe
-              id="player"
-              type="text/html"
-              className="omv__details-body_trailer"
-              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-              frameborder="0"
-            ></iframe>
-            <iframe
-              id="player"
-              type="text/html"
-              className="omv__details-body_trailer"
-              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-              frameborder="0"
-            ></iframe>
-            <iframe
-              id="player"
-              type="text/html"
-              className="omv__details-body_trailer"
-              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-              frameborder="0"
-            ></iframe>
-            <iframe
-              id="player"
-              type="text/html"
-              className="omv__details-body_trailer"
-              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-              frameborder="0"
-            ></iframe>
+        <div className="omv__details-body_videos">
+          {trailers && (
+            <>
+              <h2 style={{ marginTop: "0px" }}>Videos</h2>
+              <div className="omv__details-body_trailerContainer">
+                {trailers.map((x) => (
+                  <iframe
+                    key={x.id}
+                    title={x.id}
+                    id="player"
+                    type="text/html"
+                    className="omv__details-body_trailer"
+                    src={`http://www.youtube.com/embed/${x.key}`}
+                    frameborder="0"
+                  ></iframe>
+                ))}
+              </div>
+            </>
+          )}
+
+          <div className="omv__details-casts">
+            <h2>Casts</h2>
+            <div className="omv__details-casts_cards">
+              {cast.map((x) => (
+                <Acard
+                  cName={x.character}
+                  rName={x.name}
+                  imgLink={x.profile_path}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
