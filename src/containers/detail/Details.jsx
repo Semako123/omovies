@@ -27,7 +27,6 @@ const Details = ({ id, type }) => {
 
   useEffect(() => {
     API.get(`/${type}/${id}/credits`).then((res) => {
-      console.log(trailers);
       setCast(res.data.cast);
     });
     // eslint-disable-next-line
@@ -64,7 +63,7 @@ const Details = ({ id, type }) => {
           <div className="omv__details-header_content">
             <h2>{data.title || data.name || data.original_title} </h2>
             <div className="omv__details-header_content-tags">
-              {data.genres && data.genres.map((x) => <Tag>{x.name}</Tag>)}
+              {data.genres && data.genres.map((x) => <Tag key={x.name}>{x.name}</Tag>)}
             </div>
             <div className="omv__details-header_content-ratings">
               <h4>User Ratings</h4>
@@ -117,7 +116,7 @@ const Details = ({ id, type }) => {
         <div className="omv__details-body_companyLogos-container">
           {data.production_companies &&
             data.production_companies.map((x) => (
-              <div className="omv__details-body_companyLogo-container">
+              <div className="omv__details-body_companyLogo-container" key={x.name}>
                 <img
                   src={`https://image.tmdb.org/t/p/original/${x.logo_path}`}
                   alt=""
@@ -128,7 +127,7 @@ const Details = ({ id, type }) => {
             ))}
         </div>
         <div className="omv__details-body_videos">
-          {trailers && (
+          {trailers.length > 0 && (
             <>
               <h2 style={{ marginTop: "0px" }}>Videos</h2>
               <div className="omv__details-body_trailerContainer">
@@ -140,7 +139,7 @@ const Details = ({ id, type }) => {
                     type="text/html"
                     className="omv__details-body_trailer"
                     src={`http://www.youtube.com/embed/${x.key}`}
-                    frameborder="0"
+                    frameBorder="0"
                   ></iframe>
                 ))}
               </div>
@@ -155,6 +154,7 @@ const Details = ({ id, type }) => {
                   cName={x.character}
                   rName={x.name}
                   imgLink={x.profile_path}
+                  key={x.name}
                 />
               ))}
             </div>
