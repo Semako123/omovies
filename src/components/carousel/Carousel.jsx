@@ -74,7 +74,11 @@ const Carousel = () => {
 
               <div className="omv__carousel-container_overlay-ratings">
                 {[...Array(Math.round(data.vote_average / 2))].map((x) => (
-                  <AiFillStar className="star" color="#fff" key={`${Math.random()}`} />
+                  <AiFillStar
+                    className="star"
+                    color="#fff"
+                    key={`${Math.random()}`}
+                  />
                 ))}
                 {data.vote_average / 2 - Math.floor(data.vote_average / 2) >
                 0.4 ? (
@@ -93,7 +97,14 @@ const Carousel = () => {
                 }
                 modal
               >
-                <Details id={data.id} type={data.media_type} />
+                {(close) => (
+                  <>
+                    <button className="omv__close-button" onClick={close}>
+                      &times;
+                    </button>
+                    <Details id={data.id} type={data.media_type} />
+                  </>
+                )}
               </Popup>
             </div>
           </SwiperSlide>

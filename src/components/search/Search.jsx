@@ -89,7 +89,14 @@ const Search = () => {
         }
         modal
       >
-        <Details id={x.id} type={x.media_type} />
+        {(close) => (
+          <>
+            <button className="omv__close-button" onClick={close}>
+              &times;
+            </button>
+            <Details id={x.id} type={x.media_type} />
+          </>
+        )}
       </Popup>
     </div>
   );

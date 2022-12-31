@@ -29,7 +29,12 @@ const Section = ({ title, data, type }) => {
               }
               modal
             >
-              <Details id={x.id} type={type} />
+              {(close) => (
+                <>
+                  <button className="omv__close-button" onClick={close}> &times;</button>
+                  <Details id={x.id} type={type} />
+                </>
+              )}
             </Popup>
           ))}
       </div>

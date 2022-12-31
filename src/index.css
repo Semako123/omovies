@@ -37,6 +37,20 @@ html {
     padding: 10px 10px 0px 10px;
 }
 
+.omv__close-button{
+    padding: 5px 12px;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    border-radius: 100%;
+    cursor: pointer;
+    transform: translate(20px, 20px);
+    z-index: 50000;
+    position: absolute;
+    background-color: #15151572;
+    color: white;
+}
+
 :root {
     --color-tag: rgba(15, 239, 253, 1);
     --font-family: 'Robot', sans-serif;
